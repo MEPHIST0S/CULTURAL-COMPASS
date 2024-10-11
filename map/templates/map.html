@@ -5,57 +5,6 @@
 
 {% block content %}
 
-<div id="map" style="height: 600px;"></div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-    // Центрируем карту на Азербайджан, Баку
-    var map = L.map('map', {
-        center: [40.4093, 49.8671], // Координаты центра
-        zoom: 7, // Уровень масштабирования
-        maxZoom: 19, // Максимальный уровень масштабирования
-        minZoom: 7, // Минимальный уровень масштабирования
-        // Ограничиваем перемещение карты
-        maxBounds: [
-            [38.4045, 44.3931], // Юго-западный угол (примерные координаты)
-            [42.1859, 51.2891]  // Северо-восточный угол (примерные координаты)
-        ],
-        // Не разрешаем перемещение за пределы карты
-        worldCopyJump: false
-    });
 
-    // Подключаем слой карты
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-    }).addTo(map);
-
-    // Функция при получении местоположения
-    function onLocationFound(e) {
-        var radius = e.accuracy / 2;
-        // Установка маркера на текущем местоположении
-        L.marker(e.latlng).addTo(map)
-            .bindPopup("Вы здесь.")
-            .openPopup();
-        // Отображение круга вокруг текущего местоположения
-        L.circle(e.latlng, radius).addTo(map);
-        // Установка центра карты на текущее местоположение
-        map.setView(e.latlng, 13);
-    }
-
-    // Функция при ошибке получения местоположения
-    function onLocationError(e) {
-        alert("Ошибка получения местоположения: " + e.message); 
-    }
-
-    // Проверяем поддержку геолокации
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onLocationFound, onLocationError, {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
-        });
-    } else {
-        alert("Геолокация не поддерживается вашим браузером.");
-    }
-</script>
 
 {% endblock %}
