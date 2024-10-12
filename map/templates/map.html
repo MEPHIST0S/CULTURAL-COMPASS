@@ -5,6 +5,55 @@
 
 {% block content %}
 
+    <!-- INTERACTIVE MAP -->
+    <div id="map"></div>
 
+    <!-- GOOGLE MAPS API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmeFU3Gf6Mu9ZafPaqVVJWjQ0FrDMFilk&callback=initMap" async defer></script>
+    
+    <script>
+        function initMap() {
+            var bounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(38.389152, 44.793989),
+                new google.maps.LatLng(41.90564, 50.374366)
+            );
+            
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 40.4093, lng: 49.8671},
+                restriction: {
+                    latLngBounds: bounds,
+                    strictBounds: true,
+                }
+            });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    var marker = new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: "YOUR DESTINATION"
+                    });
+
+                    map.setCenter(userLocation);
+                }, function() {
+                    handleLocationError(true, map.getCenter());
+                });
+            } else {
+                handleLocationError(false, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, pos) {
+            alert(browserHasGeolocation 
+                ? "ERROR! GEOLOCATION COULDNT FOUND YOU" 
+                : "ERROR! YOUR BROWSER IS NOT SUPPORT GEOLOCATION");
+        }
+    </script>
 
 {% endblock %}
