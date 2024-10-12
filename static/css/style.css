@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FEA116;
+    --primary: #ffffff !important; 
     --light: #F1F8FF;
     --dark: #0F172B;
 }
@@ -21,7 +21,6 @@
     z-index: 99;
 }
 
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -36,7 +35,6 @@
     opacity: 1;
 }
 
-
 /*** Button ***/
 .btn {
     font-weight: 500;
@@ -47,6 +45,15 @@
 .btn.btn-primary,
 .btn.btn-secondary {
     color: #FFFFFF;
+}
+
+.btn-square, .btn-sm-square, .btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 2px;
 }
 
 .btn-square {
@@ -64,22 +71,32 @@
     height: 48px;
 }
 
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    border-radius: 2px;
+/*** Navbar ***/
+
+.fixed-logo-container {
+    height: 80px;
+    overflow: hidden;
 }
 
+.logo-img {
+    max-height: 130px; 
+    max-width: 100%; 
+    margin: auto; 
+    object-fit: contain;
+}
 
-/*** Navbar ***/
+h1 {
+    font-size: 20px; 
+    line-height: 1.2;
+}
+
+.navbar {
+    height: 80px; /* Установите высоту навбара для согласованности */
+}
+
 .navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
-    padding: 25px 0;
+    padding: 10px 0; /* Уменьшите паддинг для соответствия высоте */
     color: #FFFFFF;
     font-size: 15px;
     text-transform: uppercase;
@@ -92,14 +109,19 @@
 }
 
 @media (max-width: 991.98px) {
-    .navbar-dark .navbar-nav .nav-link  {
+    .navbar-dark .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
 }
 
-
 /*** Header ***/
+
+.carousel-image {
+    height: 500px;
+    object-fit: cover;
+}
+
 .carousel-caption {
     top: 0;
     left: 0;
@@ -135,13 +157,16 @@
 }
 
 .page-header {
+    background-image: url('/static/img/Background1.jpg');
+    min-height: 300px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .page-header-inner {
-    background: rgba(15, 23, 43, .7);
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 300px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -153,7 +178,6 @@
     margin-top: -100px !important;
     z-index: 1;
 }
-
 
 /*** Section Title ***/
 .section-title {
@@ -224,125 +248,6 @@
 .service-item:hover p {
     color: #FFFFFF !important;
 }
-
-
-/*** Youtube Video ***/
-.video {
-    position: relative;
-    height: 100%;
-    min-height: 500px;
-    background: linear-gradient(rgba(15, 23, 43, .1), rgba(15, 23, 43, .1)), url(../img/video.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.video .btn-play {
-    position: absolute;
-    z-index: 3;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    box-sizing: content-box;
-    display: block;
-    width: 32px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    padding: 18px 20px 18px 28px;
-}
-
-.video .btn-play:before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    display: block;
-    width: 100px;
-    height: 100px;
-    background: var(--primary);
-    border-radius: 50%;
-    animation: pulse-border 1500ms ease-out infinite;
-}
-
-.video .btn-play:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    display: block;
-    width: 100px;
-    height: 100px;
-    background: var(--primary);
-    border-radius: 50%;
-    transition: all 200ms;
-}
-
-.video .btn-play img {
-    position: relative;
-    z-index: 3;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-}
-
-.video .btn-play span {
-    display: block;
-    position: relative;
-    z-index: 3;
-    width: 0;
-    height: 0;
-    border-left: 32px solid var(--dark);
-    border-top: 22px solid transparent;
-    border-bottom: 22px solid transparent;
-}
-
-@keyframes pulse-border {
-    0% {
-        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
-        opacity: 0;
-    }
-}
-
-#videoModal {
-    z-index: 99999;
-}
-
-#videoModal .modal-dialog {
-    position: relative;
-    max-width: 800px;
-    margin: 60px auto 0 auto;
-}
-
-#videoModal .modal-body {
-    position: relative;
-    padding: 0px;
-}
-
-#videoModal .close {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 0px;
-    top: -30px;
-    z-index: 999;
-    font-size: 30px;
-    font-weight: normal;
-    color: #FFFFFF;
-    background: #000000;
-    opacity: 1;
-}
-
 
 /*** Testimonial ***/
 .testimonial {
@@ -421,9 +326,9 @@
 }
 
 .footer {
-    position: relative;
-    margin-top: -110px;
-    padding-top: 180px;
+    position:relative;
+    margin-top: -30px;
+    padding-top: 60px;
 }
 
 .footer .btn.btn-social {
@@ -488,4 +393,59 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+#map {
+    height: 500px;
+    width: 100%;   
+}
+
+.card {
+    height: 500px; /* Фиксированная высота для всех карточек */
+    display: flex;
+    flex-direction: column; /* Устанавливаем вертикальное направление для элементов внутри карточки */
+}
+
+.card-body {
+    flex-grow: 1; /* Позволяет телу карточки занимать доступное пространство */
+    display: flex;
+    flex-direction: column; /* Вертикальное размещение элементов */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+}
+
+.card-img-top {
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Обеспечиваем, чтобы изображение заполняло контейнер без искажений */
+}
+
+.mt-auto {
+    margin-top: auto; /* Отделяем кнопки от текста */
+}
+
+form {
+    margin-bottom: 20px; /* Отступы для формы */
+}
+
+button {
+    margin-left: 10px; /* Отступ между полями выбора и кнопкой */
+}
+
+.form-control {
+    border-radius: 0.5rem; /* Скругление углов полей ввода */
+    border: 1px solid #ced4da; /* Цвет границы */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Цвет границы при фокусе */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Тень при фокусе */
+}
+
+.btn-primary {
+    padding: 10px 20px; /* Увеличение размеров кнопки */
+    font-weight: bold; /* Жирный шрифт на кнопке */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+    border-color: #0056b3; /* Цвет границы при наведении */
 }

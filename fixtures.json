@@ -1,0 +1,350 @@
+[
+    {
+      "model": "core.city",
+      "pk": 1,
+      "fields": {
+        "name": "Baku",
+        "latitude": "40.4093",
+        "longitude": "49.8671"
+      }
+    },
+    {
+      "model": "core.city",
+      "pk": 2,
+      "fields": {
+        "name": "Ganja",
+        "latitude": "40.6828",
+        "longitude": "46.3606"
+      }
+    },
+    {
+      "model": "core.city",
+      "pk": 3,
+      "fields": {
+        "name": "Nakhchivan",
+        "latitude": "39.2089",
+        "longitude": "45.4122"
+      }
+    },
+    {
+      "model": "core.category",
+      "pk": 1,
+      "fields": {
+        "name": "Museums"
+      }
+    },
+    {
+      "model": "core.category",
+      "pk": 2,
+      "fields": {
+        "name": "Shopping Malls"
+      }
+    },
+    {
+      "model": "core.category",
+      "pk": 3,
+      "fields": {
+        "name": "Monuments"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 1,
+      "fields": {
+        "name": "Azerbaijan Carpet Museum",
+        "description": "Museum dedicated to the art of Azerbaijani carpet weaving.",
+        "city": 1,
+        "category": 1,
+        "latitude": "40.3619",
+        "longitude": "49.8364",
+        "rating": "4.8",
+        "founding_date": "1967-03-10",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 2,
+      "fields": {
+        "name": "National Art Museum of Azerbaijan",
+        "description": "The largest art museum in Baku.",
+        "city": 1,
+        "category": 1,
+        "latitude": "40.3651",
+        "longitude": "49.8378",
+        "rating": "4.7",
+        "founding_date": "1936-06-12",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 3,
+      "fields": {
+        "name": "Heydar Aliyev Center",
+        "description": "A cultural center famous for its architectural design.",
+        "city": 1,
+        "category": 1,
+        "latitude": "40.3982",
+        "longitude": "49.8671",
+        "rating": "4.9",
+        "founding_date": "2012-05-10",
+        "sculptor": "Zaha Hadid"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 4,
+      "fields": {
+        "name": "28 Mall",
+        "description": "One of the largest shopping malls in Baku.",
+        "city": 1,
+        "category": 2,
+        "latitude": "40.3773",
+        "longitude": "49.8471",
+        "rating": "4.4",
+        "founding_date": "2012-09-15",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 5,
+      "fields": {
+        "name": "Ganjlik Mall",
+        "description": "A popular shopping mall in Baku.",
+        "city": 1,
+        "category": 2,
+        "latitude": "40.3954",
+        "longitude": "49.8625",
+        "rating": "4.5",
+        "founding_date": "2016-10-30",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 6,
+      "fields": {
+        "name": "Port Baku Mall",
+        "description": "High-end shopping mall in the Port Baku area.",
+        "city": 1,
+        "category": 2,
+        "latitude": "40.3722",
+        "longitude": "49.8518",
+        "rating": "4.6",
+        "founding_date": "2014-06-01",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 7,
+      "fields": {
+        "name": "Ganja Carpet Museum",
+        "description": "Museum showcasing Azerbaijani carpets.",
+        "city": 2,
+        "category": 1,
+        "latitude": "40.6824",
+        "longitude": "46.3604",
+        "rating": "4.5",
+        "founding_date": "1987-07-14",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 8,
+      "fields": {
+        "name": "Ganja State History Museum",
+        "description": "A museum in Ganja focusing on regional history.",
+        "city": 2,
+        "category": 1,
+        "latitude": "40.6812",
+        "longitude": "46.3628",
+        "rating": "4.6",
+        "founding_date": "1975-04-18",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 9,
+      "fields": {
+        "name": "Nizami Ganjavi Museum",
+        "description": "Museum in Ganja dedicated to the poet Nizami Ganjavi.",
+        "city": 2,
+        "category": 1,
+        "latitude": "40.6782",
+        "longitude": "46.3589",
+        "rating": "4.7",
+        "founding_date": "1950-12-22",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 10,
+      "fields": {
+        "name": "Ganja Shopping Mall",
+        "description": "A large shopping mall in the city of Ganja.",
+        "city": 2,
+        "category": 2,
+        "latitude": "40.6845",
+        "longitude": "46.3611",
+        "rating": "4.4",
+        "founding_date": "2011-02-22",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 11,
+      "fields": {
+        "name": "Nizami Mall",
+        "description": "Shopping mall in Ganja.",
+        "city": 2,
+        "category": 2,
+        "latitude": "40.6839",
+        "longitude": "46.3623",
+        "rating": "4.5",
+        "founding_date": "2013-06-05",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 12,
+      "fields": {
+        "name": "Ganja Park Mall",
+        "description": "A popular shopping mall in Ganja.",
+        "city": 2,
+        "category": 2,
+        "latitude": "40.6828",
+        "longitude": "46.3605",
+        "rating": "4.3",
+        "founding_date": "2015-08-20",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 13,
+      "fields": {
+        "name": "Nakhchivan History Museum",
+        "description": "Museum in Nakhchivan dedicated to regional history.",
+        "city": 3,
+        "category": 1,
+        "latitude": "39.2096",
+        "longitude": "45.4111",
+        "rating": "4.5",
+        "founding_date": "1950-05-10",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 14,
+      "fields": {
+        "name": "Nakhchivan Carpet Museum",
+        "description": "A museum dedicated to Azerbaijani carpets in Nakhchivan.",
+        "city": 3,
+        "category": 1,
+        "latitude": "39.2117",
+        "longitude": "45.4105",
+        "rating": "4.6",
+        "founding_date": "1960-09-22",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 15,
+      "fields": {
+        "name": "Nakhchivan Shopping Mall",
+        "description": "A shopping mall in the city of Nakhchivan.",
+        "city": 3,
+        "category": 2,
+        "latitude": "39.2111",
+        "longitude": "45.4133",
+        "rating": "4.4",
+        "founding_date": "2005-11-30",
+        "sculptor": ""
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 16,
+      "fields": {
+        "name": "Ganja Monument to Nizami",
+        "description": "A monument in Ganja dedicated to Nizami Ganjavi.",
+        "city": 2,
+        "category": 3,
+        "latitude": "40.6821",
+        "longitude": "46.3590",
+        "rating": "4.8",
+        "founding_date": "1981-09-25",
+        "sculptor": "Omar Eldarov"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 17,
+      "fields": {
+        "name": "Statue of Heydar Aliyev",
+        "description": "Monument in Baku to former President Heydar Aliyev.",
+        "city": 1,
+        "category": 3,
+        "latitude": "40.3754",
+        "longitude": "49.8317",
+        "rating": "4.7",
+        "founding_date": "2003-10-10",
+        "sculptor": "Omar Eldarov"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 18,
+      "fields": {
+        "name": "Monument to the Martyrs of Karabakh",
+        "description": "A monument dedicated to the soldiers of Karabakh in Baku.",
+        "city": 1,
+        "category": 3,
+        "latitude": "40.3682",
+        "longitude": "49.8450",
+        "rating": "4.9",
+        "founding_date": "2001-07-12",
+        "sculptor": "Eldar Huseynov"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 19,
+      "fields": {
+        "name": "Statue of Nizami Ganjavi",
+        "description": "Monument to Nizami Ganjavi in Baku.",
+        "city": 1,
+        "category": 3,
+        "latitude": "40.3705",
+        "longitude": "49.8429",
+        "rating": "4.8",
+        "founding_date": "1949-04-25",
+        "sculptor": "Fuad Abdurahmanov"
+      }
+    },
+    {
+      "model": "core.landmark",
+      "pk": 20,
+      "fields": {
+        "name": "Monument to Jalil Mammadguluzadeh",
+        "description": "A monument dedicated to Azerbaijani satirist Jalil Mammadguluzadeh.",
+        "city": 3,
+        "category": 3,
+        "latitude": "39.2048",
+        "longitude": "45.4074",
+        "rating": "4.7",
+        "founding_date": "1984-05-20",
+        "sculptor": "Omar Eldarov"
+      }
+    }
+  ]

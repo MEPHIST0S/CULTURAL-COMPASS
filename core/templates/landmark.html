@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} LANDMARKS {% endblock %}
+
+{% block content %}
+<div>
+    <br>
+    <form method="GET" action="{% url 'core:landmark_list' %}">
+        <label for="city">CHOOSE CITY:</label>
+        <select name="city" id="city">
+            <option value="None">NONE</option>
+            <option value="">ALL CITIES</option>
+            {% for city in cities %}
+                <option value="{{ city.id }}" {% if selected_city|stringformat:"s" == city.id|stringformat:"s" %}selected{% endif %}>{{ city.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="category">CHOOSE</label>
+        <select name="category" id="category">
+            <option value="None">NONE</option>
+            <option value="">ALL</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if selected_category|stringformat:"s" == category.id|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">SEARCH</button>
+    </form>
+    <br>
+    <h2>RESULTS: </h2>
+
+    <div class="row">
+        {% if landmarks %}
+            {% for landmark in landmarks %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow d-flex flex-column">
+                        <img class="card-img-top" src="{% static 'img/flame.jpg' %}" alt="{{ landmark.name }}">
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <h5 class="card-title">{{ landmark.name|default:"No Name Available" }}</h5>
+                            <div class="d-flex mb-2">
+                                {% for i in y %}
+                                    {% if landmark.rating and i <= landmark.rating %}
+                                        <small class="fa fa-star text-primary"></small> <!-- Заполненная звезда -->
+                                    {% else %}
+                                        <small class="fa fa-star text-secondary"></small> <!-- Пустая звезда -->
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <p class="card-text">{{ landmark.description|default:"No Description Available" }}</p>
+                            <p class="text-muted">City: {{ landmark.city.name|default:"Unknown" }}</p>
+                            <p class="text-muted">Category: {{ landmark.category.name|default:"Uncategorized" }}</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-primary" href="">View Detail</a>
+                                    <a class="btn btn-dark" href="">See on Map</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No landmarks found. Please select a city and category, then click SEARCH.</p>
+        {% endif %}
+    </div>
+</div>
+<br>
+{% endblock %}
