@@ -47,92 +47,51 @@
 
 {% include 'partials/aboutpart.html' %}
 
-<!-- Room Start -->
+<!-- Most Visited Places -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Landmarks</h6>
-            <h1 class="mb-5">Most Visited <span class="text-primary text-uppercase">PLaces</span></h1>
+            <h1 class="mb-5">Most Visited <span class="text-primary text-uppercase">Places</span></h1>
         </div>
+        
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="room-item shadow rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{%  static 'img/flame.jpg' %}" alt="">
-                    </div>
-                    <div class="p-4 mt-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h5 class="mb-0">Flame Tower</h5>
-                            <div class="ps-2">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
+            {% for landmark in top_landmarks %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow d-flex flex-column">
+                    {% if landmark.image %}
+                        <img class="card-img-top" src="{{ landmark.image.url }}" alt="{{ landmark.name }}">
+                    {% else %}
+                        <img class="card-img-top" src="{% static 'img/default-image.jpg' %}" alt="Default Image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">{{ landmark.name|default:"No Name Available" }}</h5>
+                        <div class="d-flex mb-2">
+                            {% for i in y %}
+                                {% if landmark.rating and i <= landmark.rating %}
+                                    <small class="fa fa-star text-primary"></small> <!-- Заполненная звезда -->
+                                {% else %}
+                                    <small class="fa fa-star text-secondary"></small> <!-- Пустая звезда -->
+                                {% endif %}
+                            {% endfor %}
+                            <span class="ml-2">{{ landmark.rating|default:"No Rating Available" }}</span>
                         </div>
-                        <p class="text-body mb-3">
-                            The Flame Towers in Baku are iconic skyscrapers shaped like flames, symbolizing Azerbaijan's ancient fire heritage and illuminating the skyline with vibrant LED displays at night.</p>
-                        <div class="d-flex justify-content-between">
-                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">See on Map</a>
+                        <p class="card-text">{{ landmark.description|default:"No Description Available" }}</p>
+                        <p class="text-muted">City: {{ landmark.city.name|default:"Unknown" }}</p>
+                        <p class="text-muted">Category: {{ landmark.category.name|default:"Uncategorized" }}</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-primary" href="{% url 'core:landmark_detail' landmark.id %}">View Detail</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="room-item shadow rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{%  static 'img/Crescent.jpg' %}" alt="">
-                    </div>
-                    <div class="p-4 mt-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h5 class="mb-0">Crescent Mall</h5>
-                            <div class="ps-2">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                        </div>
-                        <p class="text-body mb-3">
-                            The Crescent Mall in Baku is a modern, crescent-shaped architectural marvel, offering a luxurious shopping and entertainment experience on the shores of the Caspian Sea.</p>
-                        <div class="d-flex justify-content-between">
-                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">See on Map</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="room-item shadow rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{%  static 'img/old-city-baku-1.jpg' %}" alt="">
-                    </div>
-                    <div class="p-4 mt-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h5 class="mb-0">Old Town City</h5>
-                            <div class="ps-2">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                        </div>
-                        <p class="text-body mb-3">Baku's Old City (Icherisheher) is a UNESCO World Heritage Site, showcasing centuries of history with its ancient walls, winding alleys, and iconic landmarks like the Maiden Tower and the Palace of the Shirvanshahs.</p>
-                        <div class="d-flex justify-content-between">
-                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">See on Map</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {% endfor %}
         </div>
     </div>
 </div>
-<!-- Room End -->
+<!-- Most Visited Places End -->
 
 
 <!-- Service Start -->

@@ -1,350 +1,335 @@
 [
-    {
+  {
       "model": "core.city",
       "pk": 1,
       "fields": {
-        "name": "Baku",
-        "latitude": "40.4093",
-        "longitude": "49.8671"
+          "name": "Baku",
+          "latitude": 40.4093, 
+          "longitude": 49.8671  
       }
-    },
-    {
+  },
+  {
       "model": "core.city",
       "pk": 2,
       "fields": {
-        "name": "Ganja",
-        "latitude": "40.6828",
-        "longitude": "46.3606"
+          "name": "Ganja",
+          "latitude": 40.6823, 
+          "longitude": 46.3604   
       }
-    },
-    {
+  },
+  {
       "model": "core.city",
       "pk": 3,
       "fields": {
-        "name": "Nakhchivan",
-        "latitude": "39.2089",
-        "longitude": "45.4122"
+          "name": "Lankaran",
+          "latitude": 38.7516,  
+          "longitude": 48.8506  
       }
-    },
-    {
-      "model": "core.category",
+  },
+  {
+      "model": "core.hotel",
       "pk": 1,
       "fields": {
-        "name": "Museums"
+          "name": "Shirvanshah Hotel",
+          "city": 1,
+          "address": "Shirvanshah St., 32",
+          "rating": 4.5,
+          "description": "A luxurious hotel with stunning views.",
+          "price_min": 100.00,
+          "price_max": 200.00,
+          "amenities": "Free Wi-Fi, Pool, Gym",
+          "image": "",
+          "latitude": 40.4051,
+          "longitude": 49.8500
       }
-    },
-    {
-      "model": "core.category",
+  },
+  {
+      "model": "core.hotel",
       "pk": 2,
       "fields": {
-        "name": "Shopping Malls"
+          "name": "Baku Palace Hotel",
+          "city": 1,
+          "address": "Nizami St., 45",
+          "rating": 4.0,
+          "description": "Comfortable hotel in the heart of Baku.",
+          "price_min": 80.00,
+          "price_max": 150.00,
+          "amenities": "Free Parking, Breakfast Included",
+          "image": "",
+          "latitude": 40.4070,
+          "longitude": 49.8550
       }
-    },
-    {
-      "model": "core.category",
+  },
+  {
+      "model": "core.hotel",
       "pk": 3,
       "fields": {
-        "name": "Monuments"
+          "name": "Crown Plaza Baku",
+          "city": 1,
+          "address": "Samad Vurgun St., 25",
+          "rating": 4.2,
+          "description": "Luxury hotel with exceptional service.",
+          "price_min": 120.00,
+          "price_max": 250.00,
+          "amenities": "Spa, Fitness Center",
+          "image": "",
+          "latitude": 40.4090,
+          "longitude": 49.8600
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 1,
-      "fields": {
-        "name": "Azerbaijan Carpet Museum",
-        "description": "Museum dedicated to the art of Azerbaijani carpet weaving.",
-        "city": 1,
-        "category": 1,
-        "latitude": "40.3619",
-        "longitude": "49.8364",
-        "rating": "4.8",
-        "founding_date": "1967-03-10",
-        "sculptor": ""
-      }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 2,
-      "fields": {
-        "name": "National Art Museum of Azerbaijan",
-        "description": "The largest art museum in Baku.",
-        "city": 1,
-        "category": 1,
-        "latitude": "40.3651",
-        "longitude": "49.8378",
-        "rating": "4.7",
-        "founding_date": "1936-06-12",
-        "sculptor": ""
-      }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 3,
-      "fields": {
-        "name": "Heydar Aliyev Center",
-        "description": "A cultural center famous for its architectural design.",
-        "city": 1,
-        "category": 1,
-        "latitude": "40.3982",
-        "longitude": "49.8671",
-        "rating": "4.9",
-        "founding_date": "2012-05-10",
-        "sculptor": "Zaha Hadid"
-      }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 4,
       "fields": {
-        "name": "28 Mall",
-        "description": "One of the largest shopping malls in Baku.",
-        "city": 1,
-        "category": 2,
-        "latitude": "40.3773",
-        "longitude": "49.8471",
-        "rating": "4.4",
-        "founding_date": "2012-09-15",
-        "sculptor": ""
+          "name": "Ganja City Hotel",
+          "city": 2,
+          "address": "Nizami St., 12",
+          "rating": 4.0,
+          "description": "Comfortable hotel in the heart of Ganja.",
+          "price_min": 80.00,
+          "price_max": 150.00,
+          "amenities": "Free Parking, Breakfast Included",
+          "image": "",
+          "latitude": 40.6780,
+          "longitude": 46.3650
       }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 5,
       "fields": {
-        "name": "Ganjlik Mall",
-        "description": "A popular shopping mall in Baku.",
-        "city": 1,
-        "category": 2,
-        "latitude": "40.3954",
-        "longitude": "49.8625",
-        "rating": "4.5",
-        "founding_date": "2016-10-30",
-        "sculptor": ""
+          "name": "Qara Qarayev Hotel",
+          "city": 2,
+          "address": "Qara Qarayev St., 5",
+          "rating": 4.3,
+          "description": "Modern hotel with excellent facilities.",
+          "price_min": 70.00,
+          "price_max": 140.00,
+          "amenities": "Restaurant, Wi-Fi",
+          "image": "",
+          "latitude": 40.6795,
+          "longitude": 46.3600
       }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 6,
       "fields": {
-        "name": "Port Baku Mall",
-        "description": "High-end shopping mall in the Port Baku area.",
-        "city": 1,
-        "category": 2,
-        "latitude": "40.3722",
-        "longitude": "49.8518",
-        "rating": "4.6",
-        "founding_date": "2014-06-01",
-        "sculptor": ""
+          "name": "Grand Ganja Hotel",
+          "city": 2,
+          "address": "Mikayil Mushfig St., 14",
+          "rating": 4.6,
+          "description": "Luxurious hotel with top-notch amenities.",
+          "price_min": 110.00,
+          "price_max": 220.00,
+          "amenities": "Gym, Pool, Spa",
+          "image": "",
+          "latitude": 40.6800,
+          "longitude": 46.3700
       }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 7,
       "fields": {
-        "name": "Ganja Carpet Museum",
-        "description": "Museum showcasing Azerbaijani carpets.",
-        "city": 2,
-        "category": 1,
-        "latitude": "40.6824",
-        "longitude": "46.3604",
-        "rating": "4.5",
-        "founding_date": "1987-07-14",
-        "sculptor": ""
+          "name": "Nakhchivan Hotel",
+          "city": 3,
+          "address": "Nakhchivan St., 1",
+          "rating": 4.4,
+          "description": "Charming hotel with local flavor.",
+          "price_min": 90.00,
+          "price_max": 180.00,
+          "amenities": "Garden, Restaurant",
+          "image": "",
+          "latitude": 38.7500,
+          "longitude": 48.8530
       }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 8,
       "fields": {
-        "name": "Ganja State History Museum",
-        "description": "A museum in Ganja focusing on regional history.",
-        "city": 2,
-        "category": 1,
-        "latitude": "40.6812",
-        "longitude": "46.3628",
-        "rating": "4.6",
-        "founding_date": "1975-04-18",
-        "sculptor": ""
+          "name": "Duzdag Hotel",
+          "city": 3,
+          "address": "Duzdag St., 2",
+          "rating": 4.5,
+          "description": "Unique hotel with therapeutic salt caves.",
+          "price_min": 150.00,
+          "price_max": 300.00,
+          "amenities": "Thermal Spa, Pool",
+          "image": "",
+          "latitude": 38.7520,
+          "longitude": 48.8500
       }
-    },
-    {
-      "model": "core.landmark",
+  },
+  {
+      "model": "core.hotel",
       "pk": 9,
       "fields": {
-        "name": "Nizami Ganjavi Museum",
-        "description": "Museum in Ganja dedicated to the poet Nizami Ganjavi.",
-        "city": 2,
-        "category": 1,
-        "latitude": "40.6782",
-        "longitude": "46.3589",
-        "rating": "4.7",
-        "founding_date": "1950-12-22",
-        "sculptor": ""
+          "name": "Agri Hotel",
+          "city": 3,
+          "address": "Agri St., 3",
+          "rating": 4.2,
+          "description": "Cozy hotel with mountain views.",
+          "price_min": 60.00,
+          "price_max": 120.00,
+          "amenities": "Free Wi-Fi, Breakfast Included",
+          "image": "",
+          "latitude": 38.7540,
+          "longitude": 48.8550
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 10,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 1,
       "fields": {
-        "name": "Ganja Shopping Mall",
-        "description": "A large shopping mall in the city of Ganja.",
-        "city": 2,
-        "category": 2,
-        "latitude": "40.6845",
-        "longitude": "46.3611",
-        "rating": "4.4",
-        "founding_date": "2011-02-22",
-        "sculptor": ""
+          "name": "Nakhchivan Restaurant",
+          "city": 1,
+          "address": "Nakhchivan Ave., 10",
+          "rating": 4.7,
+          "cuisine_type": "Azerbaijani",
+          "description": "Delicious Azerbaijani cuisine.",
+          "price_min": 40.00,
+          "price_max": 100.00,
+          "image": "",
+          "latitude": 40.4075,
+          "longitude": 49.8555
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 11,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 2,
       "fields": {
-        "name": "Nizami Mall",
-        "description": "Shopping mall in Ganja.",
-        "city": 2,
-        "category": 2,
-        "latitude": "40.6839",
-        "longitude": "46.3623",
-        "rating": "4.5",
-        "founding_date": "2013-06-05",
-        "sculptor": ""
+          "name": "Shirvan Shah",
+          "city": 1,
+          "address": "Shirvan St., 12",
+          "rating": 4.3,
+          "cuisine_type": "Mediterranean",
+          "description": "Mediterranean delicacies and stunning views.",
+          "price_min": 30.00,
+          "price_max": 80.00,
+          "image": "",
+          "latitude": 40.4080,
+          "longitude": 49.8560
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 12,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 3,
       "fields": {
-        "name": "Ganja Park Mall",
-        "description": "A popular shopping mall in Ganja.",
-        "city": 2,
-        "category": 2,
-        "latitude": "40.6828",
-        "longitude": "46.3605",
-        "rating": "4.3",
-        "founding_date": "2015-08-20",
-        "sculptor": ""
+          "name": "Quba Restaurant",
+          "city": 1,
+          "address": "Quba St., 5",
+          "rating": 4.6,
+          "cuisine_type": "Seafood",
+          "description": "Fresh seafood and local dishes.",
+          "price_min": 50.00,
+          "price_max": 120.00,
+          "image": "",
+          "latitude": 40.4065,
+          "longitude": 49.8570
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 13,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 4,
       "fields": {
-        "name": "Nakhchivan History Museum",
-        "description": "Museum in Nakhchivan dedicated to regional history.",
-        "city": 3,
-        "category": 1,
-        "latitude": "39.2096",
-        "longitude": "45.4111",
-        "rating": "4.5",
-        "founding_date": "1950-05-10",
-        "sculptor": ""
+          "name": "Khan's Restaurant",
+          "city": 2,
+          "address": "Khan's St., 8",
+          "rating": 4.8,
+          "cuisine_type": "Azerbaijani",
+          "description": "Authentic Azerbaijani dining experience.",
+          "price_min": 40.00,
+          "price_max": 90.00,
+          "image": "",
+          "latitude": 40.6785,
+          "longitude": 46.3680
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 14,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 5,
       "fields": {
-        "name": "Nakhchivan Carpet Museum",
-        "description": "A museum dedicated to Azerbaijani carpets in Nakhchivan.",
-        "city": 3,
-        "category": 1,
-        "latitude": "39.2117",
-        "longitude": "45.4105",
-        "rating": "4.6",
-        "founding_date": "1960-09-22",
-        "sculptor": ""
+          "name": "Ganja Cafe",
+          "city": 2,
+          "address": "Ganja St., 3",
+          "rating": 4.5,
+          "cuisine_type": "Cafe",
+          "description": "Cozy cafe with local pastries.",
+          "price_min": 10.00,
+          "price_max": 30.00,
+          "image": "",
+          "latitude": 40.6790,
+          "longitude": 46.3605
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 15,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 6,
       "fields": {
-        "name": "Nakhchivan Shopping Mall",
-        "description": "A shopping mall in the city of Nakhchivan.",
-        "city": 3,
-        "category": 2,
-        "latitude": "39.2111",
-        "longitude": "45.4133",
-        "rating": "4.4",
-        "founding_date": "2005-11-30",
-        "sculptor": ""
+          "name": "Azərbaycanca",
+          "city": 2,
+          "address": "Azerbaijan St., 1",
+          "rating": 4.4,
+          "cuisine_type": "International",
+          "description": "A mix of local and international dishes.",
+          "price_min": 30.00,
+          "price_max": 80.00,
+          "image": "",
+          "latitude": 40.6798,
+          "longitude": 46.3620
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 16,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 7,
       "fields": {
-        "name": "Ganja Monument to Nizami",
-        "description": "A monument in Ganja dedicated to Nizami Ganjavi.",
-        "city": 2,
-        "category": 3,
-        "latitude": "40.6821",
-        "longitude": "46.3590",
-        "rating": "4.8",
-        "founding_date": "1981-09-25",
-        "sculptor": "Omar Eldarov"
+          "name": "Lankaran Fish Restaurant",
+          "city": 3,
+          "address": "Fish St., 6",
+          "rating": 4.9,
+          "cuisine_type": "Seafood",
+          "description": "Specializing in fresh seafood dishes.",
+          "price_min": 40.00,
+          "price_max": 90.00,
+          "image": "",
+          "latitude": 38.7515,
+          "longitude": 48.8510
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 17,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 8,
       "fields": {
-        "name": "Statue of Heydar Aliyev",
-        "description": "Monument in Baku to former President Heydar Aliyev.",
-        "city": 1,
-        "category": 3,
-        "latitude": "40.3754",
-        "longitude": "49.8317",
-        "rating": "4.7",
-        "founding_date": "2003-10-10",
-        "sculptor": "Omar Eldarov"
+          "name": "Green Garden",
+          "city": 3,
+          "address": "Garden St., 2",
+          "rating": 4.5,
+          "cuisine_type": "Vegetarian",
+          "description": "A paradise for vegetarian food lovers.",
+          "price_min": 20.00,
+          "price_max": 60.00,
+          "image": "",
+          "latitude": 38.7525,
+          "longitude": 48.8530
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 18,
+  },
+  {
+      "model": "core.restaurant",
+      "pk": 9,
       "fields": {
-        "name": "Monument to the Martyrs of Karabakh",
-        "description": "A monument dedicated to the soldiers of Karabakh in Baku.",
-        "city": 1,
-        "category": 3,
-        "latitude": "40.3682",
-        "longitude": "49.8450",
-        "rating": "4.9",
-        "founding_date": "2001-07-12",
-        "sculptor": "Eldar Huseynov"
+          "name": "Goygol Restaurant",
+          "city": 3,
+          "address": "Goygol St., 4",
+          "rating": 4.2,
+          "cuisine_type": "Azerbaijani",
+          "description": "Traditional Azerbaijani dishes in a scenic location.",
+          "price_min": 30.00,
+          "price_max": 70.00,
+          "image": "",
+          "latitude": 38.7545,
+          "longitude": 48.8555
       }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 19,
-      "fields": {
-        "name": "Statue of Nizami Ganjavi",
-        "description": "Monument to Nizami Ganjavi in Baku.",
-        "city": 1,
-        "category": 3,
-        "latitude": "40.3705",
-        "longitude": "49.8429",
-        "rating": "4.8",
-        "founding_date": "1949-04-25",
-        "sculptor": "Fuad Abdurahmanov"
-      }
-    },
-    {
-      "model": "core.landmark",
-      "pk": 20,
-      "fields": {
-        "name": "Monument to Jalil Mammadguluzadeh",
-        "description": "A monument dedicated to Azerbaijani satirist Jalil Mammadguluzadeh.",
-        "city": 3,
-        "category": 3,
-        "latitude": "39.2048",
-        "longitude": "45.4074",
-        "rating": "4.7",
-        "founding_date": "1984-05-20",
-        "sculptor": "Omar Eldarov"
-      }
-    }
-  ]
+  }
+]

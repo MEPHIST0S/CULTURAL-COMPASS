@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="border rounded p-4 mb-4 bg-light">
+                <h1 class="display-4 font-weight-bold text-center">{{ landmark.name }}</h1>
+                <div class="text-center mb-4">
+                    <img src="{{ landmark.image.url }}" class="img-fluid landmark-image rounded shadow" style="max-width: 800px; height: auto;" alt="{{ landmark.name }}">
+                </div>
+            </div>
+
+            <div class="detail-card p-4 mb-4" style="border-radius: 8px; background-color: #f8f9fa;">
+                <p><strong>Description:</strong> {{ landmark.description }}</p>
+                <p><strong>City:</strong> {{ landmark.city.name }}</p>
+                <p><strong>Category:</strong> {{ landmark.category.name }}</p>
+                <div class="d-flex mb-2">
+                    {% for i in "12345"|make_list %}
+                        {% if landmark.rating and i <= landmark.rating|floatformat:0 %}
+                            <small class="fa fa-star text-primary"></small> <!-- Заполненная звезда -->
+                        {% else %}
+                            <small class="fa fa-star text-secondary"></small> <!-- Пустая звезда -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p><strong>History:</strong> {{ landmark.history }}</p>
+
+                {% if landmark.price %}
+                    <p><strong>Price:</strong> {{ landmark.price }} AZN</p>
+                {% endif %}
+
+                {% if landmark.founding_date %}
+                    <p><strong>Foundation:</strong> {{ landmark.founding_date }} </p>
+                {% endif %}
+
+                {% if landmark.sculptor %}
+                    <p><strong>Creator:</strong> {{ landmark.sculptor }} </p>
+                {% endif %}
+
+            </div>
+
+            <h3 class="mt-4">Location</h3>
+                <div class="card-location mb-4">
+                    <div class="card-location-body">
+                        <h5 class="card-location-title"><i class="fa fa-map-marker-alt"></i> Coordinates</h5>
+                        <p class="card-location-text">
+                            <strong>Latitude:</strong> <span class="text-primary">{{ landmark.latitude }}</span><br>
+                            <strong>Longitude:</strong> <span class="text-primary">{{ landmark.longitude }}</span>
+                        </p>
+                    </div>
+                </div>
+
+            <!-- MAP -->
+            <div id="map" style="height: 400px; width: 100%; border-radius: 8px; overflow: hidden;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initMap() {
+        var landmarkLocation = { lat: {{ landmark.latitude }}, lng: {{ landmark.longitude }} };
+    
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: landmarkLocation,
+            zoom: 12
+        });
+    
+        // Иконка для объекта (красный)
+        var landmarkIcon = {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: 'red', // Красный цвет для маркера объекта
+            fillOpacity: 1,
+            scale: 10, // Размер маркера
+            strokeColor: 'white',
+            strokeWeight: 2
+        };
+    
+        var landmarkMarker = new google.maps.Marker({
+            position: landmarkLocation,
+            map: map,
+            title: '{{ landmark.name }}',
+            icon: landmarkIcon // Используем красный маркер для объекта
+        });
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+    
+                // Иконка для пользователя (синий)
+                var userIcon = {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: 'blue', // Синий цвет для маркера пользователя
+                    fillOpacity: 1,
+                    scale: 8, // Размер маркера
+                    strokeColor: 'white',
+                    strokeWeight: 2
+                };
+    
+                var userMarker = new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: 'You are here!',
+                    icon: userIcon // Используем синий маркер для пользователя
+                });
+    
+                var bounds = new google.maps.LatLngBounds();
+                bounds.extend(landmarkLocation);
+                bounds.extend(userLocation);
+                map.fitBounds(bounds);
+            }, function() {
+                handleLocationError(true, map.getCenter());
+            });
+        } else {
+            handleLocationError(false, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, pos) {
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmeFU3Gf6Mu9ZafPaqVVJWjQ0FrDMFilk&callback=initMap">
+</script>
+{% endblock %}

@@ -14,8 +14,8 @@
         <div class="row gx-0">
             <div class="col-lg-3 bg-dark d-none d-lg-block fixed-logo-container">
                 <a href="{% url 'core:home' %}" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                    {% comment %} <img class="logo-img" src = '{% static 'img/logo.png' %}' alt = "Image"> {% endcomment %}
-                    <h1 class="mb-0 ">Cultural Compass</h1>
+                    {% comment %} <span class="logo-text">Cultural Compass</span> {% endcomment %}
+                    <img class="logo-img" src = '{% static 'img/logo.png' %}' alt = "Image">
                 </a>
             </div>
             <div class="col-lg-9">
@@ -53,9 +53,9 @@
                             <a href="{% url 'core:about' %}" class="nav-item nav-link">About</a>
                             <a href="{% url 'core:landmark_list' %}" class="nav-item nav-link">Landmarks</a>
                             <a href="{% url 'map' %}" class="nav-item nav-link">Map</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{% url 'core:guides' %}" class="nav-item nav-link">Guide</a>
                         </div>
-                        <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
+                        <a href="{% url 'core:premium' %}" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                     </div>
                 </nav>
             </div>

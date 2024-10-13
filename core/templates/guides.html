@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}GUIDE{% endblock %}
+
+{% block content %}
+
+<br>
+<!-- Form Section -->
+<form method="GET" action="{% url 'core:guides' %}" class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="date">Choose Date:</label>
+                <input type="date" name="date" id="date" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="cities">Choose Cities:</label>
+                <select name="cities" id="cities" class="form-control selectpicker" multiple data-live-search="true" required>
+                    {% for city in cities %}
+                        <option value="{{ city.id }}" {% if city.id in selected_cities %}selected{% endif %}>{{ city.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="categories">Choose Categories:</label>
+                <select name="categories" id="categories" class="form-control selectpicker" multiple data-live-search="true" required>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if category.id in selected_categories %}selected{% endif %}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <button type="submit" class="btn btn-primary mt-4 btn-lg">SHOW <i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</form>
+
+<!-- Landmarks Section -->
+<h2>LANDMARKS</h2>
+<div class="row landmarks">
+    {% if landmarks %}
+        {% for landmark in landmarks %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow d-flex flex-column">
+                    {% if landmark.image %}
+                        <img class="card-img-top" src="{{ landmark.image.url }}" alt="{{ landmark.name }}">
+                    {% else %}
+                        <img class="card-img-top" src="{% static 'img/default-image.jpg' %}" alt="Default Image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">{{ landmark.name|default:"No Name Available" }}</h5>
+                        <div class="d-flex mb-2">
+                            {% for i in y %}
+                                {% if landmark.rating and i <= landmark.rating %}
+                                    <small class="fa fa-star text-primary"></small> <!-- Filled star -->
+                                {% else %}
+                                    <small class="fa fa-star text-secondary"></small> <!-- Empty star -->
+                                {% endif %}
+                            {% endfor %}
+                            <span class="ml-2">{{ landmark.rating|default:"No Rating Available" }}</span>
+                        </div>
+                        <p class="card-text">{{ landmark.description|default:"No Description Available" }}</p>
+                        <p class="text-muted">City: {{ landmark.city.name|default:"Unknown" }}</p>
+                        <p class="text-muted">Category: {{ landmark.category.name|default:"Uncategorized" }}</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-primary" href="{% url 'core:landmark_detail' landmark.id %}">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No landmarks available.</p>
+    {% endif %}
+</div>
+
+{% if hotels %}
+    <h2>HOTELS RECOMMENDATIONS</h2>
+    <div class="row hotels">
+        {% for hotel in hotels %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow d-flex flex-column">
+                    {% if hotel.image %}
+                        <img class="card-img-top" src="{{ hotel.image.url }}" alt="{{ hotel.name }}">
+                    {% else %}
+                        <img class="card-img-top" src="{% static 'img/default-image.jpg' %}" alt="Default Image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">{{ hotel.name|default:"No Name Available" }}</h5>
+                        <div class="d-flex mb-2">
+                            {% for i in y %}
+                                {% if hotel.rating and i <= hotel.rating %}
+                                    <small class="fa fa-star text-primary"></small> <!-- Заполненная звезда -->
+                                {% else %}
+                                    <small class="fa fa-star text-secondary"></small> <!-- Пустая звезда -->
+                                {% endif %}
+                            {% endfor %}
+                            <span class="ml-2">{{ hotel.rating|default:"No Rating Available" }}</span> <!-- Рейтинг в числовом формате -->
+                        </div>
+                        <p class="text-muted">Pricing: FROM {{ hotel.price_min }} - {{ hotel.price_max }} AZN</p> <!-- Ценовой диапазон -->
+                        <p class="text-muted">City: {{ hotel.city.name|default:"Unknown" }}</p> <!-- Город -->
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-primary" href="">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No hotel recommendations available.</p>
+{% endif %}
+
+{% if restaurants %}
+    <h2>POPULAR RESTAURANTS</h2>
+    <div class="row restaurants">
+        {% for restaurant in restaurants %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow d-flex flex-column">
+                    {% if restaurant.image %}
+                        <img class="card-img-top" src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}">
+                    {% else %}
+                        <img class="card-img-top" src="{% static 'img/default-image.jpg' %}" alt="Default Image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">{{ restaurant.name|default:"No Name Available" }}</h5>
+                        <div class="d-flex mb-2">
+                            {% for i in y %}
+                                {% if restaurant.rating and i <= restaurant.rating %}
+                                    <small class="fa fa-star text-primary"></small> <!-- Заполненная звезда -->
+                                {% else %}
+                                    <small class="fa fa-star text-secondary"></small> <!-- Пустая звезда -->
+                                {% endif %}
+                            {% endfor %}
+                            <span class="ml-2">{{ restaurant.rating|default:"No Rating Available" }}</span> <!-- Рейтинг в числовом формате -->
+                        </div>
+                        <p class="text-muted">Pricing: FROM {{ restaurant.price_min }} - {{ restaurant.price_max }} AZN</p> <!-- Ценовой диапазон -->
+                        <p class="text-muted">City: {{ restaurant.city.name|default:"Unknown" }}</p> <!-- Город -->
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-primary" href="">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No restaurant recommendations available.</p>
+{% endif %}
+</div>
+<br>
+<br>
+{% endblock %}

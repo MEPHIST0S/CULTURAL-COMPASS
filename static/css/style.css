@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #ffffff !important; 
-    --light: #F1F8FF;
+    --primary: #13a4e3 !important; 
+    --light: #0680fa;
     --dark: #0F172B;
 }
 
@@ -73,16 +73,43 @@
 
 /*** Navbar ***/
 
+.logo-text {
+    color: chartreuse;
+    font-size: 28px; 
+    font-weight: bold; 
+    text-align: center; 
+    line-height: 80px; 
+    transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+    color: #fff;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
 .fixed-logo-container {
-    height: 80px;
-    overflow: hidden;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; 
 }
 
 .logo-img {
-    max-height: 130px; 
+    max-height: 115px;
     max-width: 100%; 
-    margin: auto; 
     object-fit: contain;
+    margin: auto;
+    transition: max-height 0.3s ease; 
+    border: 1px solid blue;
+}
+
+
+.fixed-logo-container:hover .logo-img {
+    max-height: 150px;
 }
 
 h1 {
@@ -91,12 +118,12 @@ h1 {
 }
 
 .navbar {
-    height: 80px; /* Установите высоту навбара для согласованности */
+    height: 80px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
-    padding: 10px 0; /* Уменьшите паддинг для соответствия высоте */
+    padding: 10px 0;
     color: #FFFFFF;
     font-size: 15px;
     text-transform: uppercase;
@@ -401,51 +428,114 @@ h1 {
 }
 
 .card {
-    height: 500px; /* Фиксированная высота для всех карточек */
+    height: 500px;
     display: flex;
-    flex-direction: column; /* Устанавливаем вертикальное направление для элементов внутри карточки */
+    flex-direction: column; 
 }
 
 .card-body {
-    flex-grow: 1; /* Позволяет телу карточки занимать доступное пространство */
+    flex-grow: 1; 
     display: flex;
-    flex-direction: column; /* Вертикальное размещение элементов */
-    justify-content: space-between; /* Распределяем пространство между элементами */
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-img-top {
-    height: 200px; /* Фиксированная высота для изображений */
-    object-fit: cover; /* Обеспечиваем, чтобы изображение заполняло контейнер без искажений */
+    height: 200px;
+    object-fit: cover;
 }
 
 .mt-auto {
-    margin-top: auto; /* Отделяем кнопки от текста */
+    margin-top: auto;
 }
 
 form {
-    margin-bottom: 20px; /* Отступы для формы */
+    margin-bottom: 20px;
 }
 
 button {
-    margin-left: 10px; /* Отступ между полями выбора и кнопкой */
+    margin-left: 10px;
 }
 
 .form-control {
-    border-radius: 0.5rem; /* Скругление углов полей ввода */
-    border: 1px solid #ced4da; /* Цвет границы */
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
 }
 
 .form-control:focus {
-    border-color: #007bff; /* Цвет границы при фокусе */
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Тень при фокусе */
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
 
 .btn-primary {
-    padding: 10px 20px; /* Увеличение размеров кнопки */
-    font-weight: bold; /* Жирный шрифт на кнопке */
+    padding: 10px 20px;
+    font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Цвет кнопки при наведении */
-    border-color: #0056b3; /* Цвет границы при наведении */
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.room-item {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.room-item img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.room-item p {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box; 
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.room-item .d-flex {
+    margin-top: auto;
+}
+
+.landmark-image{
+    max-width: 100%;
+    height: auto;
+}
+
+.card-location {
+    border: 1px solid #007bff; /* Цвет границы карточки */
+}
+
+.card-location-title {
+    font-size: 1.25rem; /* Размер шрифта для заголовка */
+}
+
+.card-location-text {
+    font-size: 1rem; /* Размер шрифта для текста */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Увеличиваем отступы между элементами формы */
+}
+
+label {
+    font-weight: bold; /* Жирный шрифт для меток */
+}
+
+.selectpicker {
+    border: 1px solid #007bff; /* Цвет рамки */
+    border-radius: 0.25rem; /* Скругление углов */
+    padding: 0.5rem; /* Внутренние отступы */
+    background-color: #f8f9fa; /* Цвет фона */
+}
+
+.selectpicker:focus {
+    border-color: #0056b3; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Тень при фокусе */
 }
